@@ -9,6 +9,10 @@ angular.module('angularTest', [])
     })
   })
 
+  .controller('FooterController', function ($scope,foodService){
+    $scope.numberOfFoods = foodService.getList().length;
+  })
+
   .service('foodService', function() {
     var privateVar = 'this is private' //private
 
