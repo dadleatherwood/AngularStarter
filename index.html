@@ -1,17 +1,32 @@
 <!DOCTYPE html>
 <html ng-app="angularTest" lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Food App</title>
 </head>
+
 <body>
   <div ng-controller="TestController">
     Hello {{name | uppercase}}
+    <h1>My Non Spicy Foods</h1>
+    <ul>
+      <li ng-repeat="food in foods | filter: food.spicy = false">
+        {{food.name}} - Is Spicy: {{food.spicy}}
+      </li>
+    </ul>
+    <h1>My Spicy Foods</h1>
+    <ul>
+      <li ng-repeat="food in spicyFoods">
+        {{food.name}}
+      </li>
+    </ul>
   </div>
 
   <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js'></script>
   <script src='app.js' charset="utf-8"></script>
 </body>
+
 </html>
